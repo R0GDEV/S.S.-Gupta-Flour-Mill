@@ -8,19 +8,19 @@ const FeaturesSection: React.FC = () => {
           title: "Premium Quality Flour",
           description:
             "Our flour is milled from the finest grains to ensure high quality and freshness for all your baking and cooking needs.",
-            image: "src/assets/PremiumQualityFlour.jpeg" || "https://via.placeholder.com/150", // Replace with actual image of flour bags or products
+            image: "src/assets/PremiumQualityFlour.jpeg" , // Replace with actual image of flour bags or products
         },
         {
           title: "Custom Grain Milling",
           description:
             "We offer custom grain milling services to meet your specific requirements, ensuring consistent results every time.",
-            image: "src/assets/CustomGrainMilling.jpeg" || "https://via.placeholder.com/150", // Replace with image representing milling services
+            image: "src/assets/CustomGrainMilling.jpeg" , // Replace with image representing milling services
         },
         {
           title: "Wholesale Supply",
           description:
             "Reliable bulk supply of flour for bakeries, restaurants, and distributors, tailored to your business needs.",
-            image: "src/assets/WholesaleSupply.jpeg" || "https://via.placeholder.com/150", // Replace with a relevant image for wholesale supply
+            image: "src/assets/WholesaleSupply.jpeg" , // Replace with a relevant image for wholesale supply
         },
       ].map((feature, index) => (
         <div

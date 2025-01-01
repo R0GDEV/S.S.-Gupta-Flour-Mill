@@ -22,7 +22,7 @@ export const items = [
   {
     id: 0,
     title: "Wheat Flour",
-    image: "src/assets/WheatFlour.jpg" || "https://via.placeholder.com/150",
+    image: "src/assets/WheatFlour.jpg" ,
     description: "Premium quality wheat flour for soft and fluffy chapatis.",
     type: "product",
     pricePerKg: 40,
@@ -30,7 +30,7 @@ export const items = [
   {
     id: 1,
     title: "Maida",
-    image: "src/assets/Maida.jpg" || "https://via.placeholder.com/150",
+    image: "src/assets/Maida.jpg" ,
     description: "Refined flour for baking delicious cakes and pastries.",
     type: "product",
     pricePerKg: 50,
@@ -38,7 +38,7 @@ export const items = [
   {
     id: 2,
     title: "Multigrain Flour",
-    image: "src/assets/MultigrainFlour.jpg" || "https://via.placeholder.com/150",
+    image: "src/assets/MultigrainFlour.jpg" ,
     description: "A healthy mix of grains, perfect for a balanced diet.",
     type: "product",
     pricePerKg: 60,
@@ -46,7 +46,7 @@ export const items = [
   {
     id: 3,
     title: "Rice Flour",
-    image: "src/assets/RiceFlour.jpg" || "https://via.placeholder.com/150",
+    image: "src/assets/RiceFlour.jpg" ,
     description: "Finely milled rice flour, perfect for South Indian dishes and gluten-free recipes.",
     type: "product",
     pricePerKg: 55,
@@ -54,7 +54,7 @@ export const items = [
   {
     id: 4,
     title: "Bajra Flour",
-    image: "src/assets/" || "https://via.placeholder.com/150",
+    image: "src/assets/" ,
     description: "Pearl millet flour, a nutritious and gluten-free alternative.",
     type: "product",
     pricePerKg: 50,
@@ -62,7 +62,7 @@ export const items = [
   {
     id: 5,
     title: "Jowar Flour",
-    image: "src/assets/" || "https://via.placeholder.com/150",
+    image: "src/assets/" ,
     description: "Sorghum flour for wholesome rotis and healthy recipes.",
     type: "product",
     pricePerKg: 50,
@@ -70,7 +70,7 @@ export const items = [
   {
     id: 6,
     title: "Besan (Gram Flour)",
-    image: "" || "https://via.placeholder.com/150",
+    image: "" ,
     description: "Fine gram flour for making pakoras, sweets, and more.",
     type: "product",
     pricePerKg: 70,

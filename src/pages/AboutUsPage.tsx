@@ -37,17 +37,17 @@ const AboutUsPage: React.FC = () => {
             {[
               {
                 title: "Wheat Flour",
-                image: "src/assets/WheatFlour.jpg" || "https://via.placeholder.com/400x300",
+                image: "src/assets/WheatFlour.jpg",
                 description: "High-quality whole wheat flour, perfect for chapatis and parathas.",
               },
               {
                 title: "Maida",
-                image: "src/assets/Maida.jpg" || "https://via.placeholder.com/400x300",
+                image: "src/assets/Maida.jpg",
                 description: "Refined flour for baking cakes, cookies, and other confectioneries.",
               },
               {
                 title: "Rice Flour",
-                image: "src/assets/RiceFlour.jpg" || "https://via.placeholder.com/400x300",
+                image: "src/assets/RiceFlour.jpg",
                 description: "Finely milled rice flour, perfect for South Indian dishes and gluten-free recipes.",
               },
             ].map((product, index) => (
