@@ -3,6 +3,7 @@ import React from "react";
 import WheatFlour from "../assets/WheatFlour.jpg";
 import Maida from "../assets/Maida.jpg";
 import RiceFlour from "../assets/RiceFlour.jpg";
+import Mission from "../assets/Mission.jpeg";
 
 const AboutUsPage: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const AboutUsPage: React.FC = () => {
       <section className="py-16 px-4">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <img
-            src="src/assets/Mission.jpeg" /* Replace with an image of a flour mill or sacks of flour */
+            src={Mission} /* Replace with an image of a flour mill or sacks of flour */
             alt="Our Mission"
             className="w-full rounded-lg shadow-md"
           />
