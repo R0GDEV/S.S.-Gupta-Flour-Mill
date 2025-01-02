@@ -1,4 +1,8 @@
 // src/data/companyData.ts
+import WheatFlour from "../assets/WheatFlour.jpg";
+import Maida from "../assets/Maida.jpg";
+import MultigrainFlour from "../assets/MultigrainFlour.jpg";
+import RiceFlour from "../assets/RiceFlour.jpg";
 
 export const companyDetails = {
   phoneNumber: "+919867953622",
@@ -22,7 +26,7 @@ export const items = [
   {
     id: 0,
     title: "Wheat Flour",
-    image: "src/assets/WheatFlour.jpg" ,
+    image: WheatFlour ,
     description: "Premium quality wheat flour for soft and fluffy chapatis.",
     type: "product",
     pricePerKg: 40,
@@ -30,7 +34,7 @@ export const items = [
   {
     id: 1,
     title: "Maida",
-    image: "src/assets/Maida.jpg" ,
+    image: Maida ,
     description: "Refined flour for baking delicious cakes and pastries.",
     type: "product",
     pricePerKg: 50,
@@ -38,7 +42,7 @@ export const items = [
   {
     id: 2,
     title: "Multigrain Flour",
-    image: "src/assets/MultigrainFlour.jpg" ,
+    image: MultigrainFlour ,
     description: "A healthy mix of grains, perfect for a balanced diet.",
     type: "product",
     pricePerKg: 60,
@@ -46,7 +50,7 @@ export const items = [
   {
     id: 3,
     title: "Rice Flour",
-    image: "src/assets/RiceFlour.jpg" ,
+    image: RiceFlour ,
     description: "Finely milled rice flour, perfect for South Indian dishes and gluten-free recipes.",
     type: "product",
     pricePerKg: 55,

@@ -1,4 +1,7 @@
 import React from "react";
+import PremiumQualityFlour from "../assets/PremiumQualityFlour.jpeg";
+import CustomGrainMilling from "../assets/CustomGrainMilling.jpeg";
+import WholesaleSupply from "../assets/WholesaleSupply.jpeg";
 
 const FeaturesSection: React.FC = () => {
   return (
@@ -8,19 +11,19 @@ const FeaturesSection: React.FC = () => {
           title: "Premium Quality Flour",
           description:
             "Our flour is milled from the finest grains to ensure high quality and freshness for all your baking and cooking needs.",
-            image: "src/assets/PremiumQualityFlour.jpeg" , // Replace with actual image of flour bags or products
+            image: PremiumQualityFlour , // Replace with actual image of flour bags or products
         },
         {
           title: "Custom Grain Milling",
           description:
             "We offer custom grain milling services to meet your specific requirements, ensuring consistent results every time.",
-            image: "src/assets/CustomGrainMilling.jpeg" , // Replace with image representing milling services
+            image: CustomGrainMilling , // Replace with image representing milling services
         },
         {
           title: "Wholesale Supply",
           description:
             "Reliable bulk supply of flour for bakeries, restaurants, and distributors, tailored to your business needs.",
-            image: "src/assets/WholesaleSupply.jpeg" , // Replace with a relevant image for wholesale supply
+            image: WholesaleSupply , // Replace with a relevant image for wholesale supply
         },
       ].map((feature, index) => (
         <div

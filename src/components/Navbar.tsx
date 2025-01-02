@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../assets/Logo.png";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center space-x-3">
           <Link to="/">
             <img
-              src="src/assets/Logo.png"
+              src={Logo}
               alt="S.S. Gupta Flour Mill"
               className="w-10 h-10 md:w-14 md:h-14 transform transition-transform duration-300 hover:scale-110"
             />

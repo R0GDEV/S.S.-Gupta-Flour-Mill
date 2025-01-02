@@ -1,5 +1,8 @@
 
 import React from "react";
+import WheatFlour from "../assets/WheatFlour.jpg";
+import Maida from "../assets/Maida.jpg";
+import RiceFlour from "../assets/RiceFlour.jpg";
 
 const AboutUsPage: React.FC = () => {
   return (
@@ -37,17 +40,17 @@ const AboutUsPage: React.FC = () => {
             {[
               {
                 title: "Wheat Flour",
-                image: "src/assets/WheatFlour.jpg",
+                image: WheatFlour,
                 description: "High-quality whole wheat flour, perfect for chapatis and parathas.",
               },
               {
                 title: "Maida",
-                image: "src/assets/Maida.jpg",
+                image: Maida,
                 description: "Refined flour for baking cakes, cookies, and other confectioneries.",
               },
               {
                 title: "Rice Flour",
-                image: "src/assets/RiceFlour.jpg",
+                image: RiceFlour,
                 description: "Finely milled rice flour, perfect for South Indian dishes and gluten-free recipes.",
               },
             ].map((product, index) => (
