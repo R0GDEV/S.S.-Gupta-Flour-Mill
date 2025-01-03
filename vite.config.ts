@@ -1,13 +1,18 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+// vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
   server: {
-    open: true, // Opens the browser on server start
+    open: false,
   },
   build: {
-    outDir: 'dist',
+    outDir: "dist",
   },
-  base: '/', // Ensures proper routing
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });
