@@ -9,6 +9,7 @@ const ServicesAndProductsPage: React.FC = () => {
   const [pincode, setPincode] = useState("");
   const [error, setError] = useState("");
   const [paymentInitiated, setPaymentInitiated] = useState(false);
+const validPincodes = ["400603", "400123"]; // Add all valid pincodes here
   
 
   // Add item to cart
@@ -75,27 +76,34 @@ const ServicesAndProductsPage: React.FC = () => {
     window.open(url, "_blank");
   };
 
-  // Handle "Pay Now" functionality
-  const handlePayNow = () => {
-    if (!deliveryAddress || pincode !== "400987") {
-      setError("Delivery is only available for pincode 400987.");
-      return;
-    }
-    setError("");
-    const upiLink = generateUPILink(calculateTotal());
-    setPaymentInitiated(true);
-    window.location.href = upiLink;
-  };
+  // List of valid pincodes
+const validPincodes = ["400603", "400081"]; // Add all valid pincodes here
 
-  // Handle "Pay Later" functionality
-  const handlePayLater = () => {
-    if (!deliveryAddress || pincode !== "400987") {
-      setError("Delivery is only available for pincode 400987.");
-      return;
-    }
-    setError("");
-    sendMessage(false); // Send message with pending payment status
-  };
+// Handle "Pay Now" functionality
+const handlePayNow = () => {
+  if (!deliveryAddress || !validPincodes.includes(pincode)) {
+    setError(`Delivery is only available for pincodes: ${validPincodes.join(", ")}.`);
+    return;
+  }
+
+  setError("");
+  const upiLink = generateUPILink(calculateTotal());
+  setPaymentInitiated(true);
+  window.location.href = upiLink; // Redirect to the UPI payment link
+};
+
+// Handle "Pay Later" functionality
+const handlePayLater = () => {
+  if (!deliveryAddress || !validPincodes.includes(pincode)) {
+    setError(`Delivery is only available for pincodes: ${validPincodes.join(", ")}.`);
+    return;
+  }
+
+  setError("");
+  sendMessage(false); // Send a message with pending payment status
+};
+
+
 
   // Handle return to the page after payment
   useEffect(() => {
