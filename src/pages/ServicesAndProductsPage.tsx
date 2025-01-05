@@ -9,7 +9,7 @@ const ServicesAndProductsPage: React.FC = () => {
   const [pincode, setPincode] = useState("");
   const [error, setError] = useState("");
   const [paymentInitiated, setPaymentInitiated] = useState(false);
-const validPincodes = ["400603", "400123"]; // Add all valid pincodes here
+
   
 
   // Add item to cart
