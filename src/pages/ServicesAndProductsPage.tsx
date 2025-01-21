@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { items, companyDetails } from "../assets/companyData";
 import { FaShoppingCart } from "react-icons/fa";
-import { log } from "console";
 
 const ServicesAndProductsPage: React.FC = () => {
   const [cart, setCart] = useState<{ id: number; quantity: number }[]>([]);
