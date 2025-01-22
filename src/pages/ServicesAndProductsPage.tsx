@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { items, companyDetails } from "../assets/companyData";
 import { FaShoppingCart } from "react-icons/fa";
+
 
 const ServicesAndProductsPage: React.FC = () => {
   const [cart, setCart] = useState<{ id: number; quantity: number }[]>([]);
@@ -8,7 +9,6 @@ const ServicesAndProductsPage: React.FC = () => {
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [pincode, setPincode] = useState("");
   const [error, setError] = useState("");
-  const [paymentInitiated, setPaymentInitiated] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(""); 
   const filteredItems = selectedCategory
   ? items.filter((item) => item.category === selectedCategory)
@@ -54,27 +54,25 @@ const ServicesAndProductsPage: React.FC = () => {
   // Delivery charge logic
   const deliveryCharge = calculateTotal() >= 200 ? 0 : 30;
 
-  // Generate UPI payment link
-  const generateUPILink = (amount: number) => {
-    const payeeVPA = companyDetails.upiVpa;
-    const payeeName = companyDetails.name;
-    const currency = "INR";
-    const note = "Payment for your order";
-
-    return `upi://pay?pa=${payeeVPA}&pn=${encodeURIComponent(
-      payeeName
-    )}&tn=${encodeURIComponent(note)}&am=${amount}&cu=${currency}`;
-  };
+ 
 
   // Send a WhatsApp message with order details
   const sendMessage = (paid: boolean) => {
     const message = `Hi! 👋\n\nThank you for choosing ${companyDetails.name}. Here are the details of your order:\n\n` +
-      cart.map((item) => {
-        const product = items.find((p) => p.id === item.id);
-        return `*${product?.title}*\n   - Quantity: ${item.quantity} Kg\n   - Total: ₹${(product?.price || 0) * item.quantity}`;
-      }).join("\n\n") +
-      `\n\n*Grand Total: ₹${calculateTotal()}*\n\n` +
-      `Payment Status: ${paid ? "Paid via UPI" : "Pending"}\n\nLooking forward to serving you! 😊`;
+
+    cart.map((item) => {
+      const product = items.find((p) => p.id === item.id);
+      return `*${product?.title}*\n - Quantity: ${item.quantity} Kg\n - Total: ₹${(product?.price || 0) * item.quantity}`;
+    }).join("\n\n") +
+    
+    `\n\n*Grand Total: ₹${calculateTotal()}*\n\n` +
+    
+    `Payment Status: ${paid ? "Paid via UPI" : "Pending"}\n\n` +
+    
+    `Delivery Address: ${deliveryAddress}, ${pincode}\n\n` +
+    
+    `Looking forward to serving you! 😊`;
+    
     const url = `https://wa.me/${companyDetails.phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
@@ -84,19 +82,7 @@ const ServicesAndProductsPage: React.FC = () => {
   // List of valid pincodes
   const validPincodes = ["400603", "400081"]; // Add all valid pincodes here
 
-  // Handle "Pay Now" functionality
-  const handlePayNow = () => {
-    if (!deliveryAddress || !validPincodes.includes(pincode)) {
-      setError(`Delivery is only available for pincodes: ${validPincodes.join(", ")}.`);
-      return;
-    }
-
-    setError("");
-    const upiLink = generateUPILink(calculateTotal());
-    setPaymentInitiated(true);
-    window.location.href = upiLink; // Redirect to the UPI payment link
-  };
-
+ 
   // Handle "Pay Later" functionality
   const handlePayLater = () => {
     if (!deliveryAddress || !validPincodes.includes(pincode)) {
@@ -110,20 +96,6 @@ const ServicesAndProductsPage: React.FC = () => {
 
 
 
-  // Handle return to the page after payment
-  useEffect(() => {
-    const handleReturnToPage = () => {
-      if (paymentInitiated) {
-        sendMessage(true); // Automatically send WhatsApp message after payment
-        setPaymentInitiated(false);
-      }
-    };
-
-    window.addEventListener("focus", handleReturnToPage);
-    return () => {
-      window.removeEventListener("focus", handleReturnToPage);
-    };
-  }, [paymentInitiated]);
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20 relative">
@@ -294,28 +266,6 @@ const ServicesAndProductsPage: React.FC = () => {
                   {error && <p className="text-red-500 mt-2">{error}</p>}
                 </div>
                 <div className="mt-6 space-y-4 flex flex-col items-center">
-                  {/* Pay Now Button */}
-                  <button
-                    onClick={handlePayNow}
-                    className="relative w-full max-w-xs px-6 py-3 rounded-xl overflow-hidden group transition-all duration-300 bg-gradient-to-br from-green-500 to-green-700 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-green-300"
-                    style={{ boxShadow: '0 4px 8px rgba(0,0,0,0.15)' }}
-                  >
-                    <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-colors duration-300"></div>
-                    <span className="relative text-lg font-medium text-white flex items-center justify-center space-x-2 z-10">
-                      <span className="text-xl">💳</span>
-                      <span>Pay Now</span>
-                    </span>
-                    <div className="absolute top-0 left-0 h-full w-2 bg-yellow-400 transform -skew-x-12 origin-top-left z-0 transition-all duration-300 group-hover:w-full group-hover:skew-x-0"></div>
-                    <div className="absolute bottom-0 right-0 h-1 w-1/3 bg-green-900/70 rounded-tl-full backdrop-blur-sm"></div>
-                    <div className="absolute top-0 right-0 h-1 w-1/4 bg-green-900/50 rounded-br-full backdrop-blur-sm"></div>
-
-                    {/* Wave effect */}
-                    <div className="absolute bottom-0 left-0 w-full h-8 overflow-hidden">
-                      <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '100%' }}>
-                        <path d="M0,100 C150,150 350,0 500,100 L500,150 L0,150 Z" style={{ stroke: 'none', fill: 'rgba(0,0,0,.1)' }}></path> {/* Adjust fill color */}
-                      </svg>
-                    </div>
-                  </button>
 
                   {/* Pay Later Button */}
                   <button
