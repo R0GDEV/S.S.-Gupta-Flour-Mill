@@ -149,10 +149,11 @@ const ServicesAndProductsPage: React.FC = () => {
             >
               {/* Product Image */}
               <img
-                src={item.image}
-                alt={item.title}
-                className="w-auto h-20 sm:h-24 rounded-full mb-3"
-              />
+  src={item.image}
+  alt={item.title}
+  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-3 object-contain"
+/>
+
 
               {/* Product Title */}
               <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 leading-tight">
