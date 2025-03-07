@@ -148,11 +148,12 @@ const ServicesAndProductsPage: React.FC = () => {
               className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 flex flex-col items-center text-center"
             >
               {/* Product Image */}
-              <img
-  src={item.image}
-  alt={item.title}
-  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-3 object-contain"
-/>
+                            <img
+                src={item.image}
+                alt={item.title}
+                className="w-auto h-20 sm:h-24 rounded-full mb-3"
+              />
+
 
 
               {/* Product Title */}
